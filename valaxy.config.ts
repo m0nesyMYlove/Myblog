@@ -30,18 +30,18 @@ export default defineValaxyConfig<UserThemeConfig>({
         icon: 'i-ri-genderless-line',
         color: 'dodgerblue',
       },
-      {
+      /*{
         name: '喜欢的女孩子',
         url: '/girls/',
         icon: 'i-ri-women-line',
         color: 'hotpink',
-      },
+      },*/
     ],
 
     footer: {
-      since: 2016,
+      since: 2024,
       beian: {
-        enable: true,
+        enable: false,
         icp: '苏ICP备17038157号',
       },
     },
