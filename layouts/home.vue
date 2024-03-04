@@ -33,7 +33,7 @@ const showNotice = computed(() => {
       v-if="showNotice"
       :content="themeConfig.notice.content" mt="4"
     />
-    useScriptTag('<script src="https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>')
+    
 
     <slot name="board" />
 
@@ -41,6 +41,8 @@ const showNotice = computed(() => {
       <RouterView />
     </slot>
 
-    <YunFooter />
+    <YunFooter
+        useScriptTag("https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js")
+    />
   </main>
 </template>
