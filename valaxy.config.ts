@@ -17,7 +17,7 @@ export default defineValaxyConfig<UserThemeConfig>({
   themeConfig: {
     banner: {
       enable: true,
-      title: ' 抹月批风的小站',
+      title: ' 抹月枇风的小站',
       cloud: {
         enable: true,
       },
