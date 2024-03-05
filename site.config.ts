@@ -93,8 +93,8 @@ export default defineSiteConfig({
     enable: true,
   },
 
-  /*sponsor: {
-    enable: true,
+  sponsor: {
+    enable: false,
     title: '我很可爱，请给我钱！',
     methods: [
       {
@@ -116,5 +116,5 @@ export default defineSiteConfig({
         icon: 'i-ri-wechat-pay-line',
       },
     ],
-  },*/
+  },
 })
