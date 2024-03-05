@@ -3,11 +3,13 @@ import { defineSiteConfig } from 'valaxy'
 export default defineSiteConfig({
   url: 'https://politian.cn/',
   lang: 'zh-CN',
-  title: 'Politian',
+  title: '抹月枇风的小站',
   author: {
-    name: 'politian',
+    name: 'Politian',
+    link: "https://politian.cn/"
   },
-  description: 'Try to do something.',
+  description: '正在尝试博客',
+  subtitle: "Try to do something.",
   social: [
     /*{
       name: 'RSS',
