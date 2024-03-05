@@ -1,7 +1,7 @@
 import { defineSiteConfig } from 'valaxy'
 
 export default defineSiteConfig({
-  url: 'https://valaxy.site/',
+  url: 'https://politian.cn/',
   lang: 'zh-CN',
   title: 'Politian',
   author: {
