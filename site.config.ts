@@ -3,7 +3,7 @@ import { defineSiteConfig } from 'valaxy'
 export default defineSiteConfig({
   url: 'https://politian.cn/',
   lang: 'zh-CN',
-  title: '抹月枇风的小站',
+  title: '抹月批风的小站',
   author: {
     name: 'Politian',
     link: "https://politian.cn/"
