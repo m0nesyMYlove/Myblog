@@ -4,7 +4,7 @@ keywords: 链接
 description: 我的小伙伴们
 aplayer: true
 links:
-    -avatar: "https://blog.huaxiangshan.com/images/avatar.png"
+   - avatar: "https://blog.huaxiangshan.com/images/avatar.png"
      name: "滑翔闪"
      url: "https://blog.huaxiangshan.com/zh-cn/"
      color: '#2D96BD'
