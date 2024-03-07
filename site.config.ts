@@ -6,10 +6,17 @@ export default defineSiteConfig({
   title: '抹月批风的小站',
   author: {
     name: 'Politian',
-    link: "https://politian.cn/"
+    link: "https://politian.cn/",
+    avatar: "https://qlogo4.store.qq.com/qzone/1596351099/1596351099/100?1698225607.jpg",
+    status: {
+      emoji: '😮',
+      message: 'Oh~ My god~',
+    },
   },
+
   description: '正在尝试博客',
   subtitle: "Try to do something.",
+
   social: [
     /*{
       name: 'RSS',
@@ -91,10 +98,6 @@ export default defineSiteConfig({
     },*/
   ],
 
-  search: {
-    enable: true,
-  },
-
   sponsor: {
     enable: false,
     title: '我很可爱，请给我钱！',
@@ -119,4 +122,22 @@ export default defineSiteConfig({
       },
     ],
   },
+
+  cdn: {
+    prefix: 'https://unpkg.com/',
+  },
+
+  search: {
+    enable: true,
+  },
+
+  //密码
+  encrypt: {
+    enable: true,
+  },
+
+  comment: {
+    enable: false,
+  },
+
 })

@@ -38,6 +38,17 @@ export default defineValaxyConfig<UserThemeConfig>({
       },*/
     ],
 
+    features: {
+      katex: true,
+    },
+
+    markdown: {
+      theme: {
+        light: "material-theme-lighter",
+        dark: "material-theme-darker",
+      },
+    },
+
     footer: {
       since: 2024,
       beian: {
