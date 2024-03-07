@@ -10,7 +10,7 @@ links:
     blog: 滑翔闪's Blog
     desc: 试图衡量有趣和深度的天平座
     email: none
-    color: "#2D96BD"
+    color: #2D96BD
 random: true
 ---
 
