@@ -8,6 +8,8 @@ links:
     name: 滑翔闪
     blog: 滑翔闪's Blog
     desc: 试图衡量有趣和深度的天平座
+    email: 
+    color: "#2D96BD"
 aplayer: true
 random: false
 ---
