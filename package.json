@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "valaxy": "0.18.5",
+    "valaxy-addon-live2d": "^0.0.5",
     "valaxy-theme-yun": "0.18.5"
   },
   "devDependencies": {
