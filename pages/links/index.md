@@ -20,8 +20,9 @@ random: true
 
 <YunLinks :links="frontmatter.links" :random="frontmatter.random" />
 
-/*## 全站友链
-*此处友链不仅会显示在本页，也会显示在全站页脚部分。
-<YunLinks :links="frontmatter.links_global" :random="frontmatter.random" />*/
-
+<!--
+## 全站友链
+此处友链不仅会显示在本页，也会显示在全站页脚部分。
+<YunLinks :links="frontmatter.links_global" :random="frontmatter.random" />
+-->
 
