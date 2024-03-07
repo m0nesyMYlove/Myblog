@@ -2,6 +2,7 @@
 title: 我的小伙伴们
 keywords: 链接
 description: 我的小伙伴们
+aplayer: true
 links: 
     -url: https://blog.huaxiangshan.com/zh-cn/
     avatar: https://blog.huaxiangshan.com/images/avatar.png
@@ -10,8 +11,7 @@ links:
     desc: 试图衡量有趣和深度的天平座
     email: 
     color: "#2D96BD"
-aplayer: true
-random: false
+random: true
 ---
 
 <meting-js
