@@ -7,7 +7,7 @@ export default defineSiteConfig({
   author: {
     name: 'Politian',
     link: "https://politian.cn/",
-    avatar: "https://qlogo4.store.qq.com/qzone/1596351099/1596351099/100?1698225607.jpg",
+    avatar: "https://telegraph-image-dtj.pages.dev/file/65e5889bdfbad33b8a5d5.jpg",
     status: {
       emoji: '😮',
       message: 'Oh~ My god~',
