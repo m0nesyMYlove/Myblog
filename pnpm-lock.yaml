@@ -8,9 +8,6 @@ dependencies:
   valaxy:
     specifier: 0.18.5
     version: 0.18.5(@types/markdown-it@13.0.7)(@unhead/shared@1.8.11)(postcss@8.4.35)(typescript@5.3.3)(unhead@1.8.11)
-  valaxy-addon-live2d:
-    specifier: ^0.0.5
-    version: 0.0.5
   valaxy-theme-yun:
     specifier: 0.18.5
     version: 0.18.5
@@ -4733,10 +4730,6 @@ packages:
       diff: 5.2.0
       kleur: 4.1.5
       sade: 1.8.1
-    dev: false
-
-  /valaxy-addon-live2d@0.0.5:
-    resolution: {integrity: sha512-3+EAw0dK2WelJNMXktz6jhW+xGe5+TQkEOmzGvuQEOxLpxoKhbL5lgEE+jhCRpTIoxwjzDNqqWqwycjXaok3KQ==}
     dev: false
 
   /valaxy-theme-yun@0.18.5:
