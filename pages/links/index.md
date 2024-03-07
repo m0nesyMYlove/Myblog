@@ -3,14 +3,13 @@ title: 我的小伙伴们
 keywords: 链接
 description: 我的小伙伴们
 aplayer: true
-links: 
-    -url: https://blog.huaxiangshan.com/zh-cn/
+links:
     avatar: https://blog.huaxiangshan.com/images/avatar.png
     name: 滑翔闪
+    url: https://blog.huaxiangshan.com/zh-cn/
+    color: '#2D96BD'
     blog: 滑翔闪's Blog
     desc: 试图衡量有趣和深度的天平座
-    email: none
-    color: #2D96BD
 random: true
 ---
 
