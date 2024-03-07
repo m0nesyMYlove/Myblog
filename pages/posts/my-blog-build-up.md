@@ -124,7 +124,7 @@ git config --global user.email
 1.在**本地cmd**运行以下代码：
 ```
 # 生成密钥,可能要一路回车
-ssh-keygen -t rsa -C "youremail"
+ssh-keygen -t rsa -C "你GitHub的邮箱"
 ```
 2.在**Git Bash**运行以下代码：
 
