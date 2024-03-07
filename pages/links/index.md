@@ -3,11 +3,11 @@ title: 我的小伙伴们
 keywords: 链接
 description: 我的小伙伴们
 links: 
-    -url: "https://blog.huaxiangshan.com/zh-cn/",
-    avatar: "https://blog.huaxiangshan.com/images/avatar.png",
-    name: "滑翔闪",
-    blog: "滑翔闪's Blog",
-    desc: "试图衡量有趣和深度的天平座"
+    -url: https://blog.huaxiangshan.com/zh-cn/
+    avatar: https://blog.huaxiangshan.com/images/avatar.png
+    name: 滑翔闪
+    blog: 滑翔闪's Blog
+    desc: 试图衡量有趣和深度的天平座
 aplayer: true
 random: false
 ---
