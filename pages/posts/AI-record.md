@@ -1,5 +1,4 @@
-﻿
----
+﻿---
 title: AI生成的相关记录
 date: 2024-05-22
 updated: 2024-05-22
@@ -21,13 +20,13 @@ top: 3
 
 虽然是这么个标题但主要是介绍大模型。
 比较常见的有以下几个：
->openAI [ChatGPT](https://chat.openai.com/)
->[Claude](https://claude.ai/onboarding)
->[Copilot](https://www.bing.com/)
->Google [Gemini](https://gemini.google.com/app)
->阿里巴巴 [通义千问](https://tongyi.aliyun.com/)
->百度 [文心一言](https://yiyan.baidu.com/welcome)
->智谱 [智谱清言](https://chatglm.cn/main/alltoolsdetail)
+>openAI [ChatGPT](https://chat.openai.com/)  
+>[Claude](https://claude.ai/onboarding)  
+>[Copilot](https://www.bing.com/)  
+>Google [Gemini](https://gemini.google.com/app)  
+>阿里巴巴 [通义千问](https://tongyi.aliyun.com/)  
+>百度 [文心一言](https://yiyan.baidu.com/welcome)  
+>智谱 [智谱清言](https://chatglm.cn/main/alltoolsdetail)  
 
 以下是我用来测试的问题：
 ```
@@ -117,10 +116,10 @@ gpt-4o能通过我用的所有测试，但是不能生成图片，输入的股�
 ## AI生成图片
 
 AI绘画的网站真的是国内国外到处都有，随便找找就能找到，当然如果你有闲情雅致也可以自己训练。这几个是可以用的网站（建议不要氪金,因为更新实在太快了，很可能你充了钱之后这个网站就倒闭了）:
->[LiblibAI·哩布哩布AI - 中国领先的AI创作平台](https://www.liblib.art/)
->[吐司](https://tusi.cn/)（这个网站免费用户采样步数只有25，流汗黄豆了）
->[Civitai](https://civitai.com/)(主要是用来下载社区模型自己炼丹)
->[TensorArt ](https://tensor.art/)
+>[LiblibAI·哩布哩布AI - 中国领先的AI创作平台](https://www.liblib.art/)  
+>[吐司](https://tusi.cn/)（这个网站免费用户采样步数只有25，流汗黄豆了）  
+>[Civitai](https://civitai.com/)(主要是用来下载社区模型自己炼丹)  
+>[TensorArt ](https://tensor.art/)  
 
 进入网站，选择合适的大模型和lora模型，然后在它们的基础上进行生成。lora模型和controlNet差不多和prompt（关键词）作用相似，都是为了更精确的描述/限制你想生成的图片（提高泛化能力）。
 
@@ -140,30 +139,30 @@ web-ui的输入部分以下部分构成：prompt（关键词） 和参数设置�
 
 ## AI生成视频
 视频是由一个个图片帧连续播放形成的，既然能够生成图片，那自然可以生成视频。你应该在B站上刷到过动画角色AI跳舞的视频，具体原理可以参考：
-[15分钟入门AI动画！Mov2Mov零基础教学，用Stable Diffusion生成酷炫逐帧重绘动画短视频，开启低成本动画时代 | 扩展插件教程_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1Su411b7Nm/)
-[AI视频时代的“开源先驱”：Sora来之前，你可以先掌握这些——AnimateDiff动画插件全方位教学，制作丝滑流畅动图！Stable Diffusion应用_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1zS421A7PG/)
+[15分钟入门AI动画！Mov2Mov零基础教学，用Stable Diffusion生成酷炫逐帧重绘动画短视频，开启低成本动画时代 | 扩展插件教程_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1Su411b7Nm/)  
+[AI视频时代的“开源先驱”：Sora来之前，你可以先掌握这些——AnimateDiff动画插件全方位教学，制作丝滑流畅动图！Stable Diffusion应用_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1zS421A7PG/)  
 
 当然一段时间后就很少看见这类视频了，这也侧面说明了AI生成视频也是卷得飞起，这些网站几乎都是在被完爆之后才免费的，那么Runway什么时候爆金币呢？
 
 以下是一些可以生成视频的网站：
 >文或图生视频
->>sora(这玩意还没公测，之后再补链接吧)
->>Stable Video Diffusion（一个开源模型，之后看看有没有云端部署，先空着吧）
->>[Runway](https://app.runwayml.com)
->>[Pika](https://pika.art/)
->>[Genmo](https://www.genmo.ai/)
->>[PixVerse](https://pixverse.ai/?ref=openi.cn)（不推荐）
->>[即梦Dreamina](https://jimeng.jianying.com/ai-tool/home)(国产的)
+>>sora(这玩意还没公测，之后再补链接吧)  
+>>Stable Video Diffusion（一个开源模型，之后看看有没有云端部署，先空着吧）  
+>>[Runway](https://app.runwayml.com)  
+>>[Pika](https://pika.art/)  
+>>[Genmo](https://www.genmo.ai/)  
+>>[PixVerse](https://pixverse.ai/?ref=openi.cn)（不推荐）  
+>>[即梦Dreamina](https://jimeng.jianying.com/ai-tool/home)(国产的)  
 >
 >图片内角色跳舞
->>[VIGGLE](https://www.viggle.ai/)
+>>[VIGGLE](https://www.viggle.ai/)  
 >
 >AI换脸
->>[faceswap](https://faceswap.so/zh-cn)
+>>[faceswap](https://faceswap.so/zh-cn)  
 
 这里放一些提示词网页：
-> [Danbooru标签](https://tags.novelai.dev/)
-> [MidJourney关键词](https://github.com/willwulfken/MidJourney-Styles-and-Keywords-Reference?tab=readme-ov-file) （你可以在它的readme.md找到想要的）
+> [Danbooru标签](https://tags.novelai.dev/)  
+> [MidJourney关键词](https://github.com/willwulfken/MidJourney-Styles-and-Keywords-Reference?tab=readme-ov-file) （你可以在它的readme.md找到想要的）  
 
 ### Runway
 
@@ -251,11 +250,11 @@ prompt支持中文，摄像机运动比较少，参数设置也比较少。
 ### 语音
 写到这里最先想到的是VITS，它可以依靠少量音频就可以训练出一个人的说话声音，可以用来配音。训练模型整合包几乎B站到处都是，难搞的是好的训练集。以下是一些模型demo的链接：
 >文生语音
->>[Clipchamp](https://app.clipchamp.com/)(和微软Azure一样的但不用去绑定银行卡，在里面有文字转语音)
->>[Fish-Speech在线推理Demo | fish.audio](https://fs.firefly.matce.cn/)（有一些动漫手游角色的语音模型）
+>>[Clipchamp](https://app.clipchamp.com/)(和微软Azure一样的但不用去绑定银行卡，在里面有文字转语音)  
+>>[Fish-Speech在线推理Demo | fish.audio](https://fs.firefly.matce.cn/)（有一些动漫手游角色的语音模型）  
 >
 >语音生成语音（最好去掉背景声，下文有提取人声的工具）
->>[Sovits Teio](https://huggingface.co/spaces/zomehwh/sovits-teio)（可以用来生成哈基米的声音,参考这个视频[【sovits4.0模型分享】让AI帝宝/诗歌剧唱歌 | Saya睡大觉中](https://www.bilibili.com/video/BV1ys4y1o7ek/?spm_id_from=333.337.search-card.all.click&vd_source=eee03f15049816d60f73364a62b558dc)）
+>>[Sovits Teio](https://huggingface.co/spaces/zomehwh/sovits-teio)（可以用来生成哈基米的声音,参考这个视频[【sovits4.0模型分享】让AI帝宝/诗歌剧唱歌 | Saya睡大觉中](https://www.bilibili.com/video/BV1ys4y1o7ek/?spm_id_from=333.337.search-card.all.click&vd_source=eee03f15049816d60f73364a62b558dc)）  
 >>
 
 如果你仅仅是需要给你的视频配音，那微软的Azure就已经足够你使用了，市面上很多营销号的AI配音就是这个，当然你也能找到其他的一些Azure换皮网站，配音这块基本上已经被杀死比赛了。
