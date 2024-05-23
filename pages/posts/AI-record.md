@@ -139,7 +139,7 @@ web-ui的输入部分以下部分构成：prompt（关键词） 和参数设置�
 
 ## AI生成视频
 视频是由一个个图片帧连续播放形成的，既然能够生成图片，那自然可以生成视频。你应该在B站上刷到过动画角色AI跳舞的视频，具体原理可以参考：
-[15分钟入门AI动画！Mov2Mov零基础教学，用Stable Diffusion生成酷炫逐帧重绘动画短视频，开启低成本动画时代 | 扩展插件教程_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1Su411b7Nm/)  
+[15分钟入门AI动画！Mov2Mov零基础教学，用Stable Diffusion生成酷炫逐帧重绘动画短视频，开启低成本动画时代 | 扩展插件教程_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1Su411b7Nm/)    
 [AI视频时代的“开源先驱”：Sora来之前，你可以先掌握这些——AnimateDiff动画插件全方位教学，制作丝滑流畅动图！Stable Diffusion应用_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1zS421A7PG/)  
 
 当然一段时间后就很少看见这类视频了，这也侧面说明了AI生成视频也是卷得飞起，这些网站几乎都是在被完爆之后才免费的，那么Runway什么时候爆金币呢？
@@ -283,9 +283,9 @@ prompt支持中文，摄像机运动比较少，参数设置也比较少。
 
 打开自定义模式后可以指定歌词和音乐风格并取名。值得一提的是，在歌词中你可以使用prompt（元标签metatag）为其指定主副歌段，甚至连演奏乐器和方式也可以指定。如果不用prompt直接塞烂梗作曲的话AI也会帮你自动划分的。
 
-以下是一些参考文章：
-[歌曲结构 101：每个词曲作者都应该知道的基础知识 |Native Instruments 博客](https://blog.native-instruments.com/song-structure-101/)
-[Suno音乐新手指南（手把手完整版教程）| AI魔法学院 ](https://www.wehelpwin.com/article/5018)
+以下是一些参考文章：   
+[歌曲结构 101：每个词曲作者都应该知道的基础知识 |Native Instruments 博客](https://blog.native-instruments.com/song-structure-101/)   
+[Suno音乐新手指南（手把手完整版教程）| AI魔法学院 ](https://www.wehelpwin.com/article/5018)   
 
 ## 结语
 从22年第一次用gpt开始到现在，AI可以说是飞速发展。资本提供了更好的数据集获得更好的AI模型，更好的模型反哺资本增长，资本下的模型逐渐拉大与社区间的差距。另一方面大数据模型的降价、本地部署配置要求降低也证明AI的使用门槛越来越低。但随之而来的伦理和法律问题也令人堪忧。
