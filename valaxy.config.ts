@@ -62,7 +62,10 @@ export default defineValaxyConfig<UserThemeConfig>({
       // Waline 配置项，参考 https://waline.js.org/reference/client/props.html
       serverURL: 'mywaline4politian.vercel.app',
       comment:true,
-
+      wordLimit:1000,
+      login:'force',
+      imageUploader:false,
+      texRenderer:false,
     }),
   ],
 
