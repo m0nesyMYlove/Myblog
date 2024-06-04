@@ -51,6 +51,11 @@ export default defineValaxyConfig<UserThemeConfig>({
     },
   },
 
+  vite: {
+    optimizeDeps: {
+      include: ['@waline/client/component'],
+    },
+  },
 
   addons: [
     // 设置 valaxy-addon-live2d 配置项
