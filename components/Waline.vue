@@ -5,7 +5,7 @@ import type { WalineInitOptions } from '@waline/client'
 
 const customOptions: WalineInitOptions = {
   serverURL: 'comment.politian.cn',
-  pageview: true,
+  pageview: false,
   comment: true,
 
   // imageUploader: (file) => {
