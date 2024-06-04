@@ -60,7 +60,7 @@ export default defineValaxyConfig<UserThemeConfig>({
     // 设置 valaxy-addon-waline 配置项
     addonWaline({
       // Waline 配置项，参考 https://waline.js.org/reference/client/props.html
-      serverURL: 'https://comment.politian.cn',
+      serverURL: 'mywaline4politian.vercel.app',
       comment:true,
 
     }),
