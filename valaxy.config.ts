@@ -60,6 +60,10 @@ export default defineValaxyConfig<UserThemeConfig>({
     addonWaline({
       // Waline 配置项，参考 https://waline.js.org/reference/client/props.html
       serverURL: 'comment.politian.cn',
+      dark:'auto',
+      requiredMeta:[],
+      wordLimit:1000,
+      reaction:true
     }),
   ],
 
