@@ -51,6 +51,10 @@ export default defineValaxyConfig<UserThemeConfig>({
     },
   },
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> b54fee4b516f0d363350af768527f24349e9b973
   unocss: { safelist },
 
   addons: [
