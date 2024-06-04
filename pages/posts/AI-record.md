@@ -1,7 +1,7 @@
 ﻿---
 title: AI生成的相关记录
 date: 2024-05-22
-updated: 2024-05-22
+updated: 2024-06-04
 categories: 学习
 tags:
 - AI
@@ -18,7 +18,6 @@ top: 3
 
 ## AI生成文本
 
-虽然是这么个标题但主要是介绍大模型。
 比较常见的有以下几个：
 >openAI [ChatGPT](https://chat.openai.com/)<br>
 >[Claude](https://claude.ai/onboarding)<br>
@@ -142,7 +141,7 @@ web-ui的输入部分以下部分构成：prompt（关键词） 和参数设置�
 [15分钟入门AI动画！Mov2Mov零基础教学，用Stable Diffusion生成酷炫逐帧重绘动画短视频，开启低成本动画时代 | 扩展插件教程_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1Su411b7Nm/)<br>
 [AI视频时代的“开源先驱”：Sora来之前，你可以先掌握这些——AnimateDiff动画插件全方位教学，制作丝滑流畅动图！Stable Diffusion应用_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1zS421A7PG/)  
 
-当然一段时间后就很少看见这类视频了，这也侧面说明了AI生成视频也是卷得飞起，这些网站几乎都是在被完爆之后才免费的，那么Runway什么时候爆金币呢？
+当然一段时间后就很少看见这类视频了，大家似乎对这种三渲二视频不太感兴趣。这也侧面说明了AI生成视频也是卷得飞起，这些网站几乎都是在被完爆之后才免费的，那么Runway什么时候爆金币呢？
 
 以下是一些可以生成视频的网站：
 >文或图生视频
@@ -257,7 +256,7 @@ prompt支持中文，摄像机运动比较少，参数设置也比较少。
 >>[Sovits Teio](https://huggingface.co/spaces/zomehwh/sovits-teio)（可以用来生成哈基米的声音,参考这个视频[【sovits4.0模型分享】让AI帝宝/诗歌剧唱歌 | Saya睡大觉中](https://www.bilibili.com/video/BV1ys4y1o7ek/?spm_id_from=333.337.search-card.all.click&vd_source=eee03f15049816d60f73364a62b558dc)）  
 >>
 
-如果你仅仅是需要给你的视频配音，那微软的Azure就已经足够你使用了，市面上很多营销号的AI配音就是这个，当然你也能找到其他的一些Azure换皮网站，配音这块基本上已经被杀死比赛了。
+如果你仅仅是需要给你的视频配音，那微软的Azure就已经足够你使用了，市面上很多营销号的AI配音就是这个。
 
 但毕竟Azure只提供了一些微软官方请的声优声源，如果你想要别的自定义声源，目前主要有GPT-sovits,Bert-visits和Fish-speech三种模型，按照顺序越往后的性能越好，前面的估计要被淘汰了。我只放了Fish-speech的demo,如果想体验一下老的GPT-sovits和Bert-visits的模型可以B站关注[Xz乔希 | bilibili](https://space.bilibili.com/5859321?spm_id_from=333.788.0.0)[](https://message.bilibili.com/#whisper/mid5859321)然后私信自动回复的链接有一些他训练过模型的demo。
 
