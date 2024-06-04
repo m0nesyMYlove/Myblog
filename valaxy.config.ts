@@ -62,10 +62,7 @@ export default defineValaxyConfig<UserThemeConfig>({
       // Waline 配置项，参考 https://waline.js.org/reference/client/props.html
       serverURL: 'comment.politian.cn',
       comment:true,
-      login:'force',
-      wordLimit:1000,
-      imageUploader:false,
-      reaction:true,
+
     }),
   ],
 
