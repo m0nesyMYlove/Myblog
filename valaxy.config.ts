@@ -2,6 +2,7 @@ import { defineValaxyConfig } from 'valaxy'
 import type { UserThemeConfig } from 'valaxy-theme-yun'
 
 import { addonLive2d } from 'valaxy-addon-live2d'
+import { addonWaline } from 'valaxy-addon-waline'
 
 // add icons what you will need
 const safelist = [
@@ -50,8 +51,16 @@ export default defineValaxyConfig<UserThemeConfig>({
     },
   },
 
-  // 设置 valaxy-addon-live2d 配置项
-  addons: [addonLive2d({})],
+
+  addons: [
+    // 设置 valaxy-addon-live2d 配置项
+    addonLive2d({}),
+    // 设置 valaxy-addon-waline 配置项
+    addonWaline({
+      // Waline 配置项，参考 https://waline.js.org/reference/client/props.html
+      serverURL: 'https://mywaline4politian.vercel.app',
+    }),
+  ],
 
   unocss: { safelist },
 })
