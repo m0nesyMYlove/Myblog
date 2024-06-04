@@ -55,10 +55,11 @@ export default defineValaxyConfig<UserThemeConfig>({
   addons: [
     // 设置 valaxy-addon-live2d 配置项
     addonLive2d({}),
+
     // 设置 valaxy-addon-waline 配置项
     addonWaline({
       // Waline 配置项，参考 https://waline.js.org/reference/client/props.html
-      serverURL: 'https://mywaline4politian.vercel.app',
+      serverURL: 'comment.politian.cn',
     }),
   ],
 
