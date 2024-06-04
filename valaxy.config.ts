@@ -51,11 +51,7 @@ export default defineValaxyConfig<UserThemeConfig>({
     },
   },
 
-  vite: {
-    optimizeDeps: {
-      include: ['@waline/client/component'],
-    },
-  },
+  unocss: { safelist },
 
   addons: [
     // 设置 valaxy-addon-live2d 配置项
@@ -68,6 +64,4 @@ export default defineValaxyConfig<UserThemeConfig>({
       comment:true,
     }),
   ],
-
-  unocss: { safelist },
 })
