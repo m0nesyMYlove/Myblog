@@ -82,7 +82,7 @@ gpt-4o能通过我用的所有测试，但是不能生成图片，输入的股�
 
 扩展方面有谷歌地图和油管，可以在直接搜油管上的相关视频，感觉是个特点。
 
-![gemini扩展](https://telegraph-image-dtj.pages.dev/file/c928b56bf66e1b925e855.png)
+![gemini扩展](https://image.politian.cn/file/c928b56bf66e1b925e855.png)
 
 因为政治正确目前没有图片生成，我也没找到文档上传的地方。
 
@@ -92,7 +92,7 @@ gpt-4o能通过我用的所有测试，但是不能生成图片，输入的股�
 
 扩展提供了实时语音转文字和字幕功能
 
-![通义界面](https://telegraph-image-dtj.pages.dev/file/487bd5f5e850b7f3110d4.png)
+![通义界面](https://image.politian.cn/file/487bd5f5e850b7f3110d4.png)
 
 显示出来的图片理解、逻辑分析、代码能力等方面等还行，但是你把文字转成英文就会出问题。国产大模型的水平都差不太多，感觉主要就是看有什么额外功能和价格吧。所以最近国产模型降价特别猛。
 
@@ -108,7 +108,7 @@ gpt-4o能通过我用的所有测试，但是不能生成图片，输入的股�
 
 扩展方面这个数据分析也许有用。
 
-![智谱界面](https://telegraph-image-dtj.pages.dev/file/a2d1b7323fb947ec80803.png)
+![智谱界面](https://image.politian.cn/file/a2d1b7323fb947ec80803.png)
 
 国产大模型的水平都差不太多，但他在图片分析时同样给了我策略，这点还是很不错的。
 
@@ -128,7 +128,7 @@ web-ui的输入部分以下部分构成：prompt（关键词） 和参数设置�
 
 可以直接使用别人已经写好的prompt和参数设置，例如：[元素法典——Novel AI 元素魔法全收录|Chinese CoQ Production Committee](https://docs.qq.com/doc/DWHl3am5Zb05QbGVs)，里面有很多prompt，你也可以根据[元素同典：确实不完全科学的魔导书|Chinese CoQ Production Committee](https://docs.qq.com/doc/DWFdSTHJtQWRzYk9k)自己写prompt。关于prompt也可以用chatgpt尝试生成（最好用高版本的，如gpt4）。
 
-![AI生成图](https://telegraph-image-dtj.pages.dev/file/04cda67d7377cb1cc237d.png)
+![AI生成图](https://image.politian.cn/file/04cda67d7377cb1cc237d.png)
 
 这张图也是用元素法典里的prompt生成的，一眼就看到左手手指还有阴影有缺陷，但我懒得再炼了。
 
@@ -184,11 +184,11 @@ Runway需要科学上网，注册后会提供100秒的免费生成时长，而�
 >
 >custom presets(你自己保存的预设选项，包括prompt文字描述和镜头移动这些)
 
-![runway界面1](https://telegraph-image-dtj.pages.dev/file/c1cce18d268925e526e7c.png)
+![runway界面1](https://image.politian.cn/file/c1cce18d268925e526e7c.png)
 
 自己测试了一下，感觉文生视频不太好用（难道是“一个黑人在黑夜里捉乌鸦”太刁钻了？），生成的人物经常不动。主观使用上我认为这个网站更多的还是用图和文字prompt一块输入生成。
 
-![runway界面2](https://telegraph-image-dtj.pages.dev/file/367fd176bec26e56947e7.png)
+![runway界面2](https://image.politian.cn/file/367fd176bec26e56947e7.png)
 
 投喂二次元图的效果挺不错，会自己补光影，头发飘动也能自己调，虽然裙子摆动调不出来而且眼睛看上去很糊，但是看上去没有太大的崩坏。
 
@@ -197,7 +197,7 @@ Runway需要科学上网，注册后会提供100秒的免费生成时长，而�
 Pika需要科学上网，注册后貌似Pika 1.0是免费。
 这个网页提供了视频内音效生成（虽然比较构思）。参数里主要是摄像机控制（没有抠图笔刷差评），分辨率，负面tag和帧率、动作强度、cfg权重控制ai自由度。做完之后还能一键重做或者重编辑prompt，很好用。
 
-![pika界面](https://telegraph-image-dtj.pages.dev/file/06436d088b2ee6c5b74ef.png)
+![pika界面](https://image.politian.cn/file/06436d088b2ee6c5b74ef.png)
 
 投喂二次元图生成的效果还行，但是越到后面画面越糊，负面tag修饰也救不了，猜想是不是快门速度的关系，懒得找了。它都不限时长了what can I say?包好评的。
 
@@ -206,7 +206,7 @@ Pika需要科学上网，注册后貌似Pika 1.0是免费。
 需要科学上网，注册后免费。
 除了图文prompt外，提供了摄像机运动和滤镜，但摄像机运动只有缩放和旋转令人发笑。
 
-![Genmo](https://telegraph-image-dtj.pages.dev/file/dffdd9a397df8a6ef4e9a.png)
+![Genmo](https://image.politian.cn/file/dffdd9a397df8a6ef4e9a.png)
 
 投喂二次元图生成的效果是依托答辩，但是它做出来一个裙摆下落的动作令我感到惊讶，之前的网页是做不出来这个的，它能理解裙摆因为重力下落？也许换成真实图片会有不错的表现。
 
@@ -217,7 +217,7 @@ Pika需要科学上网，注册后貌似Pika 1.0是免费。
 需要科学上网，注册后有200额度，生成一次消耗10点。
 图文生成方面没什么好说的，该有的摄像机运动之类的都有。值得一提的是它提供了按照角色进行生成的模式，也就是说你可以把自己喜欢的角色的几张图喂到里面再通过文字prompt进行生成，算是有新意吧，不过感觉不好用哈哈。
 
-![PixVerse界面](https://telegraph-image-dtj.pages.dev/file/083ff9977b474e76756ee.png)
+![PixVerse界面](https://image.politian.cn/file/083ff9977b474e76756ee.png)
 
 投喂二次元图生成的结果动作太少了，头发裙摆锁链都不动，仅仅是摄像机画面的缩放，所有网站prompt写的都是一样的，生成这样的效果只能说是被其他的完爆几条街了，再加上它还收费，很不推荐。
 
@@ -226,7 +226,7 @@ Pika需要科学上网，注册后貌似Pika 1.0是免费。
 国产的，B站有官方账号[Dreamina的个人空间-Dreamina个人主页-哔哩哔哩视频 (bilibili.com)](https://space.bilibili.com/3546611372264291?spm_id_from=333.788.0.0)，免费额度每天60点，但生成一次就要12点，贵死了。
 prompt支持中文，摄像机运动比较少，参数设置也比较少。
 
-![Dreamina界面](https://telegraph-image-dtj.pages.dev/file/50adab8c18f80e3a1be54.png)
+![Dreamina界面](https://image.politian.cn/file/50adab8c18f80e3a1be54.png)
 
 生成的结果我个人感觉该动的地方不该动的地方都在动，比起runway能控制运动区域来说个人认为欠佳，但是国产的能做到这样不错了，但是收费好贵。
 
@@ -239,7 +239,7 @@ prompt支持中文，摄像机运动比较少，参数设置也比较少。
 参考：[用AI让照片跳舞，制作动作模拟恶搞视频，Viggle使用方法 | 聪明小鱼鱼up](https://www.bilibili.com/video/BV1UD421n7CD/)
 
 进到官网discord服务器之后，在左边选一个服务器animate服务器进去，最下面发送/mix然后上传文件，最后搜索自己的名字等一会就能找到了。
-![Viggle界面](https://telegraph-image-dtj.pages.dev/file/8d163a2c5afe84d8c2605.png)
+![Viggle界面](https://image.politian.cn/file/8d163a2c5afe84d8c2605.png)
 
 效果其实挺一般的，但视频里那些也差不多，不想要绿幕可以自己上传背景，水印部分你自己把分辨率调大一点然后把水印截掉吧。
 
@@ -274,11 +274,11 @@ prompt支持中文，摄像机运动比较少，参数设置也比较少。
 
 说到音乐生成那就是Suno了吧，注册后一个账号一天可以生成10次（没次数了不想等可以重新注册），不氪金每首上限为2分钟。
 
-![suno界面1](https://telegraph-image-dtj.pages.dev/file/aac33a46b35d1b1da8f58.png)
+![suno界面1](https://image.politian.cn/file/aac33a46b35d1b1da8f58.png)
 
 不打开自定义模式custom mode，你可以通过文字描述（当然你可以用AI生成描述）让AI自己选择歌词、风格、命名，勾选乐器Instrumental可以生成纯音乐。
 
-![suno界面2](https://telegraph-image-dtj.pages.dev/file/e779c021709f683c8ec1d.png)
+![suno界面2](https://image.politian.cn/file/e779c021709f683c8ec1d.png)
 
 打开自定义模式后可以指定歌词和音乐风格并取名。值得一提的是，在歌词中你可以使用prompt（元标签metatag）为其指定主副歌段，甚至连演奏乐器和方式也可以指定。如果不用prompt直接塞烂梗作曲的话AI也会帮你自动划分的。
 
