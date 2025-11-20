@@ -7,7 +7,7 @@ export default defineSiteConfig({
   author: {
     name: 'Politian',
     link: "https://politian.cn/",
-    avatar: "public/65e5889bdfbad33b8a5d5.jpg",
+    avatar: "https://politian.cn/public/avatar.jpg",
     status: {
       emoji: '😮',
       message: 'Oh~ My god~',
