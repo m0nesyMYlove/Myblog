@@ -14,7 +14,7 @@ export default defineSiteConfig({
     },
   },
 
-  description: '正在尝试博客',
+  description: '正在尝试博客。',
   subtitle: "Try to do something.",
 
   social: [
