@@ -41,6 +41,11 @@ export default defineValaxyConfig<UserThemeConfig>({
       },*/
     ],
 
+    bg_image: {
+      enable: true,
+      url: 'https://image.politian.cn/file/AgACAgUAAyEGAATMIXEFAAMDaSByAh7lwjtcC1BIsdEPF6FUSZQAAvMLaxuYzAlV5JYJDMpXPooBAAMCAAN3AAM2BA.png',	// 白日模式背景
+      opacity: 0.8
+    },
 
     footer: {
       since: 2024,
