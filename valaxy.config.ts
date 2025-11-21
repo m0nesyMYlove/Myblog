@@ -55,7 +55,9 @@ export default defineValaxyConfig<UserThemeConfig>({
 
   addons: [
     // 设置 valaxy-addon-live2d 配置项
-    addonLive2d({}),
+    addonLive2d({
+      hideOnScreenSizes: 768, // 当屏幕宽度 <= 768px 时隐藏模型
+    }),
 
     // 设置 valaxy-addon-waline 配置项
     addonWaline({
