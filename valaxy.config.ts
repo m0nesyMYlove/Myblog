@@ -58,6 +58,15 @@ export default defineValaxyConfig<UserThemeConfig>({
 
   unocss: { safelist },
 
+  components: {
+      // 排除不需要自动注册的目录或组件
+      exclude:[
+        /[\\/]\.git[\\/]/,
+        /[\\/]\.exclude[\\/]/, // 排除 .exclude 文件夹
+        // 您可以添加其他需要排除的正则表达式规则
+      ],
+    },
+
   addons: [
     // 设置 valaxy-addon-live2d 配置项
     addonLive2d({
