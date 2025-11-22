@@ -43,7 +43,7 @@ export default defineValaxyConfig<UserThemeConfig>({
 
     bg_image: {
       enable: true,
-      url: 'https://image.politian.cn/file/AgACAgUAAyEGAATMIXEFAAMDaSByAh7lwjtcC1BIsdEPF6FUSZQAAvMLaxuYzAlV5JYJDMpXPooBAAMCAAN3AAM2BA.png',	// 白日模式背景
+      url: 'https://image.politian.cn/file/AgACAgUAAyEGAATMIXEFAAMEaSFI4z-JVBdUZEFd--hqEWFIFkwAAnYLaxuYzBFVgSJc0V21absBAAMCAAN3AAM2BA.png',	// 白日模式背景
       opacity: 0.8
     },
 
