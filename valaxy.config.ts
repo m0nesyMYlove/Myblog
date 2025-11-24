@@ -43,7 +43,7 @@ export default defineValaxyConfig<UserThemeConfig>({
 
     bg_image: {
       enable: true,
-      url: 'https://politian.cn/image/bgimage.png',	// 白日模式背景
+      url: 'https://politian.cn/image/bgimage.webp',	// 白日模式背景
       opacity: 0.8
     },
 
