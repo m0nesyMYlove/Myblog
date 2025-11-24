@@ -1,7 +1,8 @@
 import { defineValaxyConfig } from 'valaxy'
 import type { UserThemeConfig } from 'valaxy-theme-yun'
 
-import { addonLive2d } from 'valaxy-addon-live2d'
+import { webfontDownload } from 'vite-plugin-webfont-dlpnpm add vite-plugin-webfont-dl -D --registry=https://registry.npmmirror.com'
+
 import { addonWaline } from 'valaxy-addon-waline'
 
 // add icons what you will need
@@ -56,6 +57,10 @@ export default defineValaxyConfig<UserThemeConfig>({
     },
   },
 
+  vite: {
+    plugins: [webfontDownload()],
+  },
+
   unocss: { safelist },
 
   components: {
@@ -68,10 +73,6 @@ export default defineValaxyConfig<UserThemeConfig>({
     },
 
   addons: [
-    // 设置 valaxy-addon-live2d 配置项
-    addonLive2d({
-      hideOnScreenSizes: 768, // 当屏幕宽度 <= 768px 时隐藏模型
-    }),
 
     // 设置 valaxy-addon-waline 配置项
     addonWaline({
