@@ -1,7 +1,7 @@
 import { defineValaxyConfig } from 'valaxy'
 import type { UserThemeConfig } from 'valaxy-theme-yun'
 
-import { webfontDownload } from 'vite-plugin-webfont-dlpnpm add vite-plugin-webfont-dl -D --registry=https://registry.npmmirror.com'
+import { webfontDownload } from 'vite-plugin-webfont-dl'
 
 import { addonWaline } from 'valaxy-addon-waline'
 
