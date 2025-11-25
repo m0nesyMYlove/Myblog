@@ -4,8 +4,7 @@ export default function setupPreconnect() {
       'https://fonts.googleapis.com',
       'https://fonts.gstatic.com',
       'https://politian.cn',
-      'https://comment.politian.cn'
-      'https://image.politian.cn'
+      'https://v1.hitokoto.cn'
     ];
 
     preconnectUrls.forEach(url => {
