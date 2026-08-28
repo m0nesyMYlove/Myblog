@@ -12,9 +12,10 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "valaxy": "0.18.5",
-    "valaxy-addon-waline": "^0.1.4",
-    "valaxy-theme-yun": "0.18.5"
+    "valaxy": "latest",
+    "valaxy-addon-meting": "^0.2.0",
+    "valaxy-addon-waline": "latest",
+    "valaxy-theme-yun": "latest"
   },
   "devDependencies": {
     "typescript": "^5.3.3",

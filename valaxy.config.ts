@@ -3,6 +3,7 @@ import type { UserThemeConfig } from 'valaxy-theme-yun'
 
 import { webfontDownload } from 'vite-plugin-webfont-dl'
 
+import { addonMeting } from 'valaxy-addon-meting'
 import { addonWaline } from 'valaxy-addon-waline'
 
 // add icons what you will need
@@ -45,7 +46,7 @@ export default defineValaxyConfig<UserThemeConfig>({
     bg_image: {
       enable: true,
       url: 'https://politian.cn/image/bgimage.webp',	// 白日模式背景
-      opacity: 0.8
+      opacity: 0.4
     },
 
     footer: {
@@ -84,6 +85,16 @@ export default defineValaxyConfig<UserThemeConfig>({
       imageUploader:false,
       texRenderer:false,
     }),
+
+    // 设置 valaxy-addon-meting 播放器配置项
+    addonMeting({
+      // 设为 `global: true` 可在每个页面显示固定播放器
+      global: false,
+      props: {
+        api: 'https://api.injahow.cn/meting/api?server=:server&type=:type&id=:id&r=:r',
+      }
+    }),
+
   ],
 
 
