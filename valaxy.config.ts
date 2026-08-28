@@ -97,5 +97,13 @@ export default defineValaxyConfig<UserThemeConfig>({
 
   ],
 
+  // 新增 markdown 配置，禁用异步高亮
+  markdown: {
+    markdownItOptions: {
+      highlight: (str: string, lang: string) => {
+        return `<pre><code>${str}</code></pre>`
+      }
+    }
+  }
 
 })
