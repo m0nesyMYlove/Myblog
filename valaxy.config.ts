@@ -58,10 +58,15 @@ export default defineValaxyConfig<UserThemeConfig>({
 
   vite: {
     ssgOptions: {
-      // 预渲染产物中移除主题注入的 Google Fonts 外链(字体已在 setup/main.js 本地自托管),
-      // 避免首个访客的浏览器仍去请求 fonts.googleapis.com 造成渲染阻塞
+      // 预渲染产物清理：
+      // 1) 移除主题注入的 Google Fonts 外链(字体已在 setup/main.ts 本地自托管)
+      // 2) 移除 valaxy renderPreloadLinks 对产物内全部字体文件的 preload——
+      //    否则每次首访会无视 unicode-range 一次性下载 ~200 个字体分片(约 10MB),
+      //    去掉后浏览器按 CSS 中实际用到的字形分片按需加载
       onPageRendered: (_route, html) =>
-        html.replace(/<link[^>]*fonts\.(googleapis|gstatic)\.com[^>]*>/gi, ''),
+        html
+          .replace(/<link[^>]*fonts\.(googleapis|gstatic)\.com[^>]*>/gi, '')
+          .replace(/<link[^>]*rel="preload"[^>]*as="font"[^>]*>/gi, ''),
     },
   },
 
