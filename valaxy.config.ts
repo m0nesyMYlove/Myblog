@@ -44,6 +44,7 @@ export default defineValaxyConfig<UserThemeConfig>({
     bg_image: {
       enable: true,
       url: '/image/bgimage.webp',	// 白日模式背景(文件在 public/image/,同源加载比跨域快)
+      dark: '/image/bgimage.webp',	// 黑夜模式背景(不配置则黑夜显示主题默认渐变)
       opacity: 0.4
     },
 
