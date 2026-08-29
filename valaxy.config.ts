@@ -28,7 +28,8 @@ export default defineValaxyConfig<UserThemeConfig>({
 
     pages: [
       {
-        name: '我的小伙伴们',
+        // $locale: 前缀 = 走 i18n 翻译,文案在 locales/{en,zh-CN}.yml 的 nav.friends
+        name: '$locale:nav.friends',
         url: '/links/',
         icon: 'i-ri-genderless-line',
         color: 'dodgerblue',

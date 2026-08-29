@@ -2,3 +2,7 @@
 intro:
   desc: Valaxy Template
   hi: Hello, Valaxy!
+
+# 自定义导航项(valaxy.config.ts themeConfig.pages 中 name 以 $locale: 开头的 key)
+nav:
+  friends: My Friends
