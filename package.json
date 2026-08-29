@@ -12,13 +12,13 @@
     "serve": "vite preview"
   },
   "dependencies": {
+    "@fontsource/noto-serif-sc": "^5.2.8",
     "valaxy": "1.0.0-rc.9",
     "valaxy-addon-meting": "^0.2.0",
     "valaxy-addon-waline": "latest",
     "valaxy-theme-yun": "1.0.0-rc.9"
   },
   "devDependencies": {
-    "typescript": "^5.3.3",
-    "vite-plugin-webfont-dl": "^3.11.1"
+    "typescript": "^5.3.3"
   }
 }

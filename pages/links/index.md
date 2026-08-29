@@ -19,4 +19,4 @@ random: true
 
 <YunLinks :links="frontmatter.links" :random="frontmatter.random" errorImg="https://cdn.yunyoujun.cn/img/avatar/none.jpg" />
 
-<MetingJs id="123456789" server="netease" type="playlist" fixed="true" api="https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&r=:r" />
+<MetingJs id="611346528" server="netease" type="playlist" fixed="true" api="https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&r=:r" />

@@ -1,8 +1,6 @@
 import { defineValaxyConfig } from 'valaxy'
 import type { UserThemeConfig } from 'valaxy-theme-yun'
 
-import { webfontDownload } from 'vite-plugin-webfont-dl'
-
 import { addonMeting } from 'valaxy-addon-meting'
 import { addonWaline } from 'valaxy-addon-waline'
 
@@ -45,7 +43,7 @@ export default defineValaxyConfig<UserThemeConfig>({
 
     bg_image: {
       enable: true,
-      url: 'https://politian.cn/image/bgimage.webp',	// 白日模式背景
+      url: '/image/bgimage.webp',	// 白日模式背景(文件在 public/image/,同源加载比跨域快)
       opacity: 0.4
     },
 
@@ -59,7 +57,12 @@ export default defineValaxyConfig<UserThemeConfig>({
   },
 
   vite: {
-    plugins: [webfontDownload()],
+    ssgOptions: {
+      // 预渲染产物中移除主题注入的 Google Fonts 外链(字体已在 setup/main.js 本地自托管),
+      // 避免首个访客的浏览器仍去请求 fonts.googleapis.com 造成渲染阻塞
+      onPageRendered: (_route, html) =>
+        html.replace(/<link[^>]*fonts\.(googleapis|gstatic)\.com[^>]*>/gi, ''),
+    },
   },
 
   unocss: { safelist },

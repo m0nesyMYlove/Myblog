@@ -7,7 +7,7 @@ export default defineSiteConfig({
   author: {
     name: 'Politian',
     link: "https://politian.cn/",
-    avatar: "https://politian.cn/image/myavatar.webp",
+    avatar: "/image/myavatar.webp",
     status: {
       emoji: '😮',
       message: 'Oh~ My god~',
@@ -124,7 +124,7 @@ export default defineSiteConfig({
   },
 
   cdn: {
-    prefix: 'https://unpkg.com/',
+    prefix: 'https://fastly.jsdelivr.net/npm/',
   },
 
   search: {

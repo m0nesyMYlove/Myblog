@@ -11,3 +11,10 @@
 .aplayer.aplayer-fixed .aplayer-lrc {
   bottom: 76px !important;
 }
+
+// 背景图层(.yun-bg 本身 position:fixed 不滚动,fixed/scroll 两种附着绘制结果一致),
+// 改用 scroll 规避 Chromium 对 fixed 附着背景的滚动重绘(iOS 端主题本来就用 scroll)。
+// 类名写两遍是为提高优先级,避免主题组件样式因加载顺序靠后而压过这里的覆盖
+.yun-bg.yun-bg {
+  background-attachment: scroll;
+}
