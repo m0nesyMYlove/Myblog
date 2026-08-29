@@ -1,1 +1,13 @@
 // you can custom css here
+
+// APlayer 固定(fixed)模式模板默认把歌名/进度条区域写死为 display: none(仅 mini 模式会移除),
+// 这里强制显示,固定播放器条才能看到歌名、进度和控制按钮
+.aplayer.aplayer-fixed .aplayer-info {
+  display: block !important;
+}
+
+// 固定模式的歌词默认悬浮在页面底部,窄窗口下会被白底的播放器条(z-index 99)挡住,
+// 上移到播放器条上方显示(需 !important,否则会被按加载顺序覆盖)
+.aplayer.aplayer-fixed .aplayer-lrc {
+  bottom: 76px !important;
+}

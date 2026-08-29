@@ -91,7 +91,10 @@ export default defineValaxyConfig<UserThemeConfig>({
       // 设为 `global: true` 可在每个页面显示固定播放器
       global: false,
       props: {
-        api: 'https://api.injahow.cn/meting/api?server=:server&type=:type&id=:id&r=:r',
+        id: '611346528',
+        server: 'netease',
+        type: 'playlist',
+        api: 'https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&r=:r',
       }
     }),
 

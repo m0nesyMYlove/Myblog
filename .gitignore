@@ -1,6 +1,7 @@
 # valaxy
 
 valaxy-fuse-list.json
+.valaxy/
 
 # vite-ssg
 
@@ -17,4 +18,5 @@ node_modules
 .idea/
 *.log
 
-components.d.ts
+# zcode
+.zcode/
