@@ -17,4 +17,15 @@
 // 类名写两遍是为提高优先级,避免主题组件样式因加载顺序靠后而压过这里的覆盖
 .yun-bg.yun-bg {
   background-attachment: scroll;
+
+  // 手机端下滑时地址栏收起会持续改变动态视口高度,主题的 height:100% 跟着视口变,
+  // cover 缩放随之连续变化,背景图看起来在"漂移"。
+  // lvh 是固定的"大视口"高度,不随地址栏收起/展开变化;旧浏览器回退 100vh
+  height: 100vh;
+  height: 100lvh;
+
+  // 导航栏滚动后(>10px)会加 .play 类激活 backdrop-filter 毛玻璃,
+  // 手机端(DPR 高、瓦片光栅)此时会强制背景层重新光栅化,背景图瞬间偏移。
+  // translateZ(0) 把背景层提升为独立合成层,与导航的 backdrop-root 解耦,消除偏移
+  transform: translateZ(0);
 }
