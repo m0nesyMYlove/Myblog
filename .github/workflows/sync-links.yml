@@ -1,0 +1,62 @@
+# 友链自动同步：拉取 links 页评论区（Waline）里的友链申请，追加进 pages/links/index.md。
+# 脚本零 npm 依赖，无需安装依赖即可运行。
+#
+# 运行状态看这里：https://github.com/m0nesyMYlove/Myblog/actions/workflows/sync-links.yml
+# 失败会显示红叉并触发 GitHub 邮件通知。
+name: 友链同步
+
+on:
+  schedule:
+    # UTC 18:30 = 北京时间每周二 02:30
+    - cron: '30 18 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-friend-links
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js lts/*
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+
+      - name: 🤝 同步友链申请
+        run: node scripts/sync-friend-links.mjs
+
+      - name: 📝 提交友链更新
+        run: |
+          if git diff --quiet pages/links/index.md; then
+            echo "友链无变化，跳过提交"
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add pages/links/index.md
+            git commit -m "📝 docs(pages): 自动同步友链申请"
+            git push
+          fi
+
+      # 仓库 60 天无 commit 时 GitHub 会自动停用定时工作流；
+      # 超过 45 天未提交就推一个 [skip ci] 空提交当心跳——
+      # Actions / Netlify / Vercel 都会跳过 [skip ci]，心跳本身零成本
+      - name: 💓 保活心跳
+        run: |
+          last=$(git log -1 --format=%ct)
+          days=$(( ( $(date +%s) - last ) / 86400 ))
+          if [ "$days" -ge 45 ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit --allow-empty -m "🤖 chore(ci): 定时同步保活心跳 [skip ci]"
+            git push
+            echo "💓 距上次提交 ${days} 天，已推送保活心跳" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "距上次提交 ${days} 天，无需保活"
+          fi

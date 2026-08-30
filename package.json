@@ -10,6 +10,7 @@
     "build:ssg": "valaxy build --ssg && node scripts/generate-llms.mjs",
     "dev": "valaxy",
     "rss": "valaxy rss",
+    "sync:friend-links": "node scripts/sync-friend-links.mjs",
     "serve": "vite preview",
     "prepare": "husky"
   },
