@@ -4,11 +4,6 @@ import type { UserThemeConfig } from 'valaxy-theme-yun'
 import { addonMeting } from 'valaxy-addon-meting'
 import { addonWaline } from 'valaxy-addon-waline'
 
-// add icons what you will need
-const safelist = [
-  'i-ri-home-line',
-]
-
 /**
  * User Config
  */
@@ -83,8 +78,6 @@ export default defineValaxyConfig<UserThemeConfig>({
           ),
     },
   },
-
-  unocss: { safelist },
 
   components: {
       // 排除不需要自动注册的目录或组件
