@@ -1,56 +1,33 @@
-# create-valaxy
+# 抹月批风的小站
+
+基于 [Valaxy](https://valaxy.site) 搭建的个人博客：<https://politian.cn/>
 
 [![友链同步](https://github.com/m0nesyMYlove/Myblog/actions/workflows/sync-links.yml/badge.svg)](https://github.com/m0nesyMYlove/Myblog/actions/workflows/sync-links.yml)
 
-Example: [valaxy.site](https://valaxy.site)
-
-## Usage
+## 常用命令
 
 ```bash
-# install
-pnpm install
-
-# start
-pnpm dev
+pnpm install        # 安装依赖
+pnpm dev            # 本地开发，访问 http://localhost:4859/
+pnpm build          # 构建静态站点（SSG，并生成 llms.txt）
+pnpm sync:friend-links   # 手动同步友链申请（支持 --dry-run）
 ```
 
-See `http://localhost:4859/`, have fun!
+## 目录结构
 
-### Config
+日常写博客只需要关心 `pages`：
 
-Modify `valaxy.config.ts` to custom your blog.
+- `pages/posts`：文章目录，写的 md 会被当作博文
+- `pages/links`：友链页（评论区友链申请会被自动同步进来）
+- `styles`：覆盖主题样式，`index.scss` / `css-vars.scss` 自动加载
+- `components`：自定义 Vue 组件，自动注册
+- `layouts`：自定义布局（md 里用 `layout: xxx` 启用）
+- `locales`：自定义 i18n
+- `scripts`：`sync-friend-links.mjs` 友链同步、`generate-llms.mjs` 生成 llms.txt
+- `.github/workflows`：commitlint 校验、PR/push 构建检查、友链定时同步
+- 部署配置：`Dockerfile`、`netlify.toml`、`vercel.json`
 
-English & Chinese Docs is coming!
-
-> Wait a minute.
-
-### Docker
-
-```bash
-docker build . -t your-valaxy-blog-name:latest
-```
-
-## Structure
-
-In most cases, you only need to work in the `pages` folder.
-
-### Main folders
-
-- `pages`: your all pages
-  - `posts`: write your posts here, will be counted as posts
-- `styles`: override theme styles, `index.scss`/`vars.csss`/`index.css` will be loaded automatically
-- `components`: custom your vue components (will be loaded automatically)
-- `layouts`: custom layouts (use it by `layout: xxx` in md)
-- `locales`: custom i18n
-
-### Other
-
-- `.vscode`: recommend some useful plugins & settings, you can preview icon/i18n/class...
-- `.github`: GitHub Actions for commitlint & PR build check
-- `netlify.toml`: for [netlify](https://www.netlify.com/)
-- `vercel.json`: for [vercel](https://vercel.com/)
-
-### 友链自动同步
+## 友链自动同步
 
 `sync-links.yml` 每周二凌晨 02:30（北京时间）读取 links 页评论区里的友链申请，自动追加进 `pages/links/index.md` 并提交推送；也可在 Actions 页手动触发，或本地运行 `pnpm sync:friend-links`（支持 `--dry-run`）。
 
@@ -60,7 +37,7 @@ In most cases, you only need to work in the `pages` folder.
 - 保活：仓库超 45 天无 commit 时自动推一个 `[skip ci]` 空提交，防止 GitHub 因 60 天不活跃停用定时工作流（不会触发部署）
 - 想永久排除某站点：`scripts/sync-friend-links.mjs` 的 `EXCLUDE_URLS`，或到 Waline 后台删除该申请评论
 
-## Commit Convention
+## 提交规范
 
 提交信息遵循 [CONTRIBUTING.md](./.github/CONTRIBUTING.md)：`<emoji> <type>(<scope>): <主题>`。
 提交模板在 `.github/commit-template.txt`：每台机器执行一次
