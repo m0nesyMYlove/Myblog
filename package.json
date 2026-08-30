@@ -7,7 +7,7 @@
   "scripts": {
     "build": "pnpm run build:ssg",
     "build:spa": "valaxy build",
-    "build:ssg": "valaxy build --ssg",
+    "build:ssg": "valaxy build --ssg && node scripts/generate-llms.mjs",
     "dev": "valaxy",
     "rss": "valaxy rss",
     "serve": "vite preview",
