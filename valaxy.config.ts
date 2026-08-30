@@ -65,10 +65,22 @@ export default defineValaxyConfig<UserThemeConfig>({
       // 2) 移除 valaxy renderPreloadLinks 对产物内全部字体文件的 preload——
       //    否则每次首访会无视 unicode-range 一次性下载 ~200 个字体分片(约 10MB),
       //    去掉后浏览器按 CSS 中实际用到的字形分片按需加载
-      onPageRendered: (_route, html) =>
+      // 3) 仅首页注入两条加载提示：
+      //    - preload 头像(LCP 元素)：主题将 banner 包在 <ClientOnly> 中,头像还要等
+      //      bannerAnimationDone 才挂载,SSG HTML 里没有 <img>,浏览器要等 JS 水合
+      //      后才开始下载,低速网络下产生 ~1.8s 的 LCP 资源加载延迟
+      //    - preconnect 一言 API(原先由 setup/preconnect.js 运行时注入,时机太晚
+      //      已无意义;crossorigin 使 CORS fetch 可复用预建连接)
+      onPageRendered: (route, html) =>
         html
           .replace(/<link[^>]*fonts\.(googleapis|gstatic)\.com[^>]*>/gi, '')
-          .replace(/<link[^>]*rel="preload"[^>]*as="font"[^>]*>/gi, ''),
+          .replace(/<link[^>]*rel="preload"[^>]*as="font"[^>]*>/gi, '')
+          .replace(
+            /<head>/i,
+            route === '/' || route === '/index.html'
+              ? '<head><link rel="preload" href="/image/myavatar.webp" as="image" fetchpriority="high"><link rel="preconnect" href="https://v1.hitokoto.cn" crossorigin>'
+              : '<head>',
+          ),
     },
   },
 
