@@ -6,3 +6,5 @@ intro:
 # 自定义导航项(valaxy.config.ts themeConfig.pages 中 name 以 $locale: 开头的 key)
 nav:
   friends: 我的小伙伴们
+  home: 首页
+  backToTop: 回到顶部
