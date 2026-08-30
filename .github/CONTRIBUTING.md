@@ -33,6 +33,8 @@ git 提交模板（`.github/commit-template.txt`，已通过 `git config commit.
 | 🔧    | chore    | 杂务：构建、配置、依赖、部署     |
 | ⏪    | revert   | 回滚某次提交                     |
 
+> 🤖 为机器人自动提交专用（友链同步、保活心跳），人工提交请勿使用，详见「八」。
+
 ## 三、scope（可选，标明改动范围）
 
 | scope   | 覆盖范围                                        |
@@ -144,3 +146,15 @@ git 提交模板（`.github/commit-template.txt`，已通过 `git config commit.
 
 1. `git revert` 自动生成的信息不带 emoji，会被拦截，提交前手动补上即可。
 2. 应急出口：确有理由时可用 `git commit --no-verify` 跳过本地校验（服务端 CI 仍会检查）。
+
+## 八、自动化提交与 [skip ci]
+
+`sync-links.yml`（友链同步）会以 `github-actions[bot]` 身份生成两类提交：
+
+- `📝 docs(pages): 自动同步友链申请`：links 页有新友链申请时更新 `pages/links/index.md`。
+- `🤖 chore(ci): 定时同步保活心跳 [skip ci]`：仓库超 45 天无提交时推一个**空提交**
+  （无任何文件改动），防止 GitHub 因 60 天不活跃停用定时工作流。
+
+心跳带 `[skip ci]` 标记：Actions、Netlify、Vercel 都会跳过这次触发，不会产生多余
+构建部署。**人工提交请勿模仿 🤖，也不要随手加 `[skip ci]`**——它会让本次推送静默
+跳过 CI 校验与部署，仅限自动化提交使用。
