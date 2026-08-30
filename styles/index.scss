@@ -146,3 +146,11 @@ html.dark .aplayer.aplayer-fixed .aplayer-lrc .aplayer-lrc-current {
   // translateZ(0) 把背景层提升为独立合成层,与导航的 backdrop-root 解耦,消除偏移
   transform: translateZ(0);
 }
+
+// 头像右下角的 emoji 状态气泡:主题背景用 var(--va-c-bg-light),白天 #fff、黑夜 #202127;
+// 而它身后承载头像的白色方块(.yun-square 的 bg-white/80)两种模式都是白色,
+// 黑夜下深色气泡挂在白色方块角落显得割裂。固定为与方块同款白色半透明,两种模式都同步。
+// html 前缀提高优先级,避免主题组件样式加载顺序靠后压过这里的覆盖
+html .site-author-status {
+  background-color: rgb(255 255 255 / 0.8);
+}
