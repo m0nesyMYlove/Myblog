@@ -1,4 +1,5 @@
-# 友链自动同步：拉取 links 页评论区（Waline）里的友链申请，追加进 pages/links/index.md。
+# 友链自动同步：拉取 links 页评论区（Waline）里的友链申请合并进数据源 public/link.json，
+# 再由它整体生成 pages/links/index.md 的友链列表。
 # 脚本零 npm 依赖，无需安装依赖即可运行。
 #
 # 运行状态看这里：https://github.com/m0nesyMYlove/Myblog/actions/workflows/sync-links.yml
@@ -34,12 +35,12 @@ jobs:
 
       - name: 📝 提交友链更新
         run: |
-          if git diff --quiet pages/links/index.md; then
+          if git diff --quiet pages/links/index.md public/link.json; then
             echo "友链无变化，跳过提交"
           else
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add pages/links/index.md
+            git add public/link.json pages/links/index.md
             git commit -m "📝 docs(pages): 自动同步友链申请"
             git push
           fi

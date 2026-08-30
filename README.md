@@ -18,21 +18,23 @@ pnpm sync:friend-links   # 手动同步友链申请（支持 --dry-run）
 日常写博客只需要关心 `pages`：
 
 - `pages/posts`：文章目录，写的 md 会被当作博文
-- `pages/links`：友链页（评论区友链申请会被自动同步进来）
+- `pages/links`：友链页（列表由 `public/link.json` 数据源自动生成）
 - `styles`：覆盖主题样式，`index.scss` / `css-vars.scss` 自动加载
 - `components`：自定义 Vue 组件，自动注册
 - `layouts`：自定义布局（md 里用 `layout: xxx` 启用）
 - `locales`：自定义 i18n
 - `scripts`：`sync-friend-links.mjs` 友链同步、`generate-llms.mjs` 生成 llms.txt
+- `public/link.json`：友链数据源（评论区申请 + 手动友链都在这里维护）
 - `.github/workflows`：commitlint 校验、PR/push 构建检查、友链定时同步
 - 部署配置：`Dockerfile`、`netlify.toml`、`vercel.json`
 
 ## 友链自动同步
 
-`sync-links.yml` 每周二凌晨 02:30（北京时间）读取 links 页评论区里的友链申请，自动追加进 `pages/links/index.md` 并提交推送；也可在 Actions 页手动触发，或本地运行 `pnpm sync:friend-links`（支持 `--dry-run`）。
+友链数据统一存放在数据源 `public/link.json`（手动友链 + 评论区申请都在这里）。`sync-links.yml` 每周二凌晨 02:30（北京时间）读取 links 页评论区里的友链申请，去重合并进数据源，再由数据源整体生成 `pages/links/index.md` 的友链列表，两个文件一并提交推送；也可在 Actions 页手动触发，或本地运行 `pnpm sync:friend-links`（支持 `--dry-run`）。
 
+- 手动添加/修改/删除友链：直接编辑 `public/link.json`，然后跑一次 `pnpm sync:friend-links`（不跑也行，下次定时任务会自动带上）
 - 申请格式：在 links 页评论区按置顶模板提交 JSON（``` 代码块或裸 JSON 均可）
-- 去重：按 URL 判断，已在页面里的不会重复添加
+- 去重：按 URL 判断，已在 `public/link.json` 里的不会重复添加
 - 防抖：请求自动重试（最多 3 次，指数退避 + 抖动），偶发网络抖动不会误报失败；重试全部失败才会红叉报警
 - 保活：仓库超 45 天无 commit 时自动推一个 `[skip ci]` 空提交，防止 GitHub 因 60 天不活跃停用定时工作流（不会触发部署）
 - 想永久排除某站点：`scripts/sync-friend-links.mjs` 的 `EXCLUDE_URLS`，或到 Waline 后台删除该申请评论

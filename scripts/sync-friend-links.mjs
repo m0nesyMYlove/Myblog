@@ -1,19 +1,19 @@
-// 自动同步友链申请：读取 links 页评论区（Waline）里按 JSON 格式提交的申请，
-// 解析后追加进 pages/links/index.md 的 frontmatter links 列表。
-// .github/workflows/sync-links.yml 每周定时调用；本地也可手动运行：
-//   node scripts/sync-friend-links.mjs [--dry-run]
+// 自动同步友链：评论区（Waline）申请去重合并进数据源 public/link.json，
+// 再由它整体生成 pages/links/index.md 的 links 列表。手动友链直接编辑 link.json。
+// CI（sync-links.yml）每周定时调用；本地：node scripts/sync-friend-links.mjs [--dry-run]
 //
-// 申请格式（评论里的 ``` 代码块或裸 JSON 均可，字符串外的 // 注释会被剥离）：
+// 申请格式（``` 代码块或裸 JSON 均可，字符串外的 // 注释会被剥离）：
 //   { "url": "https://example.com/", "avatar": "...", "name": "...", "blog": "...", "desc": "..." }
 //
-// 去重规则：按 URL 判断，已在页面里的不会重复添加。因此手动删掉某条友链后，
-// 对应申请评论还在的话会被再次加回；想永久排除，把站点加进下面的 EXCLUDE_URLS，
-// 或直接到 Waline 后台（comment.politian.cn/ui）删除那条申请评论。
+// 去重：按 URL，已在 link.json 里的不重复添加。手动删掉的友链若申请评论还在会被加回；
+// 永久排除用下方 EXCLUDE_URLS，或到 Waline 后台删除该申请评论。
 import { appendFileSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
+// 友链数据源（评论区申请 + 手动友链），links 页列表由它生成；别手改 index.md
+const STORE = join(root, 'public/link.json')
 const TARGET = join(root, 'pages/links/index.md')
 
 const WALINE_API = 'https://comment.politian.cn'
@@ -253,6 +253,56 @@ function hostOf(raw) {
   }
 }
 
+// 文件缺失/非法时直接失败，绝不回退成空列表——那会把 links 页整表清空
+function loadStore() {
+  let raw
+  try {
+    raw = readFileSync(STORE, 'utf8')
+  }
+  catch {
+    throw new Error('友链数据源 public/link.json 不存在，它是所有友链的唯一存储，请先创建（字段：avatar/name/url/color/blog/desc）')
+  }
+  let list
+  try {
+    list = JSON.parse(raw)
+  }
+  catch (err) {
+    throw new Error(`public/link.json 不是合法 JSON：${err.message}`)
+  }
+  if (!Array.isArray(list))
+    throw new Error('public/link.json 顶层必须是数组')
+
+  const seen = new Set()
+  const entries = []
+  for (const item of list) {
+    const url = String(item.url ?? '').trim()
+    if (!url) {
+      console.warn(`[友链同步] ⚠ 数据源里有一条无 url 的条目，已忽略：${JSON.stringify(item)}`)
+      continue
+    }
+    const normUrl = normalizeUrl(url)
+    if (seen.has(normUrl)) {
+      console.warn(`[友链同步] ⚠ 数据源里 url 重复，保留首条：${url}`)
+      continue
+    }
+    seen.add(normUrl)
+    const name = item.name || item.blog || url
+    entries.push({
+      avatar: item.avatar || FALLBACK_AVATAR,
+      name,
+      url,
+      color: item.color || PALETTE[hashString(name) % PALETTE.length],
+      blog: item.blog || name,
+      desc: item.desc || '',
+    })
+  }
+  return entries
+}
+
+function saveStore(entries) {
+  writeFileSync(STORE, `${JSON.stringify(entries, null, 2)}\n`)
+}
+
 // 申请评论片段 → 友链条目；url 必填，name/blog/avatar/desc 缺失时逐级回退
 function toEntry(fields, comment) {
   const url = fields.url?.replace(/^<|>$/g, '').trim() ?? ''
@@ -318,14 +368,17 @@ function locateLinksBlock(content) {
   return { lines, linksIdx, blockEnd }
 }
 
-function collectExistingUrls(lines, linksIdx, blockEnd) {
-  const urls = new Set()
-  for (let i = linksIdx + 1; i < blockEnd; i++) {
-    const m = lines[i].match(/^\s{2,}url:\s*(.+?)\s*$/)
-    if (m)
-      urls.add(normalizeUrl(m[1].replace(/^["']|["']$/g, '')))
-  }
-  return urls
+// 内容与现状一致时不写文件；每次运行都执行，手动改的 link.json 由此流进 links 页
+function regenerateIndex(entries) {
+  const content = readFileSync(TARGET, 'utf8')
+  const { lines, linksIdx, blockEnd } = locateLinksBlock(content)
+  const rendered = renderEntries(entries)
+  const current = lines.slice(linksIdx + 1, blockEnd)
+  if (current.length === rendered.length && current.every((line, i) => line === rendered[i]))
+    return false
+  lines.splice(linksIdx + 1, current.length, ...rendered)
+  writeFileSync(TARGET, lines.join('\n'))
+  return true
 }
 
 // 与现有条目风格一致：普通文本不加引号（含空格的 中文/英文 值也无需引号），
@@ -350,14 +403,16 @@ function renderEntries(entries) {
   ])
 }
 
-function report(commentCount, added, skip, warnings) {
+function report(commentCount, store, added, skip, warnings, indexUpdated) {
   const consoleLines = [
     `检查评论：${commentCount} 条`,
+    `数据源现有友链：${store.length} 条（public/link.json）`,
     `新增友链：${added.length} 条`,
     ...added.map(e => `  + ${e.blog}（${e.url}）`),
     `跳过：自己站点 ${skip.self} · 排除列表 ${skip.excluded} · 已存在 ${skip.exists}`,
     `无效/不完整申请：${warnings.length} 处`,
     ...warnings.map(w => `  ⚠ ${w}`),
+    `links 页列表：${indexUpdated ? '已按数据源重新生成（pages/links/index.md）' : '与数据源一致，无需改动'}`,
   ]
   console.log(`[友链同步]\n${consoleLines.map(l => `  ${l}`).join('\n')}`)
   if (dryRun)
@@ -369,10 +424,12 @@ function report(commentCount, added, skip, warnings) {
       '## 🤝 友链同步结果',
       '',
       `- 检查评论 **${commentCount}** 条`,
+      `- 数据源现有友链 **${store.length}** 条`,
       `- 新增友链 **${added.length}** 条${added.length ? `：${added.map(e => `[${e.blog}](${e.url})`).join('、')}` : ''}`,
       `- 跳过：自己站点 ${skip.self} · 排除列表 ${skip.excluded} · 已存在 ${skip.exists}`,
       `- 无效/不完整申请：${warnings.length} 处`,
       ...warnings.map(w => `  - ⚠️ ${w}`),
+      `- links 页列表${indexUpdated ? '已按数据源重新生成' : '与数据源一致'}`,
       '',
       dryRun ? '> --dry-run 模式，未写入文件' : '',
       '',
@@ -381,11 +438,10 @@ function report(commentCount, added, skip, warnings) {
 }
 
 async function main() {
-  const comments = await fetchComments()
+  const store = loadStore()
+  const storeUrls = new Set(store.map(e => normalizeUrl(e.url)))
 
-  const content = readFileSync(TARGET, 'utf8')
-  const { lines, linksIdx, blockEnd } = locateLinksBlock(content)
-  const existingUrls = collectExistingUrls(lines, linksIdx, blockEnd)
+  const comments = await fetchComments()
 
   const excludedHosts = new Set(EXCLUDE_URLS.map(hostOf).filter(Boolean))
   const excludedUrls = new Set(EXCLUDE_URLS.map(normalizeUrl))
@@ -393,7 +449,6 @@ async function main() {
   const added = []
   const warnings = []
   const skip = { self: 0, excluded: 0, exists: 0 }
-  const seen = new Set(existingUrls)
 
   for (const comment of comments) {
     for (const block of extractCandidates(commentText(comment))) {
@@ -415,22 +470,25 @@ async function main() {
         skip.excluded++
         continue
       }
-      if (seen.has(normUrl)) {
+      if (storeUrls.has(normUrl)) {
         skip.exists++
         continue
       }
-      seen.add(normUrl)
+      storeUrls.add(normUrl)
       added.push(entry)
     }
   }
 
   if (added.length && !dryRun) {
-    // 只追加新条目，不动已有行：diff 最小，天然幂等
-    lines.splice(blockEnd, 0, ...renderEntries(added))
-    writeFileSync(TARGET, lines.join('\n'))
+    store.push(...added)
+    saveStore(store)
   }
 
-  report(comments.length, added, skip, warnings)
+  let indexUpdated = false
+  if (!dryRun)
+    indexUpdated = regenerateIndex(store)
+
+  report(comments.length, store, added, skip, warnings, indexUpdated)
 }
 
 main().catch((err) => {
