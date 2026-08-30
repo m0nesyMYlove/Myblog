@@ -1,0 +1,5 @@
+# pnpm 10 默认拦截依赖的 postinstall 脚本，显式放行这三个官方维护、构建链需要的包
+onlyBuiltDependencies:
+  - '@parcel/watcher'
+  - esbuild
+  - vue-demi

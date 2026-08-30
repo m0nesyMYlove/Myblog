@@ -6,12 +6,10 @@ Example: [valaxy.site](https://valaxy.site)
 
 ```bash
 # install
-npm i
-# or pnpm i
+pnpm install
 
 # start
-npm run dev
-# or pnpm dev
+pnpm dev
 ```
 
 See `http://localhost:4859/`, have fun!
@@ -55,4 +53,4 @@ In most cases, you only need to work in the `pages` folder.
 提交信息遵循 [CONTRIBUTING.md](./.github/CONTRIBUTING.md)：`<emoji> <type>(<scope>): <主题>`。
 提交模板在 `.github/commit-template.txt`：每台机器执行一次
 `git config commit.template .github/commit-template.txt`，之后 `git commit` 时自动展示（本机已配置）。
-提交信息会被 commitlint 自动校验（本地 husky 钩子 + GitHub Actions，PR 与 push 均检查），PR 另有 `npm run build` 构建验证。
+提交信息会被 commitlint 自动校验（本地 husky 钩子 + GitHub Actions，PR 与 push 均检查），PR 另有 `pnpm build` 构建验证。

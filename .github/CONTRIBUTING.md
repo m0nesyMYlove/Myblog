@@ -135,10 +135,10 @@ git 提交模板（`.github/commit-template.txt`，已通过 `git config commit.
 
 - **提交模板**：`git commit` 时自动显示骨架（`.github/commit-template.txt`）。
 - **本地钩子**：`package.json` 的 `prepare` 脚本会在任何人执行
-  `pnpm i` / `npm i` 时自动安装 git 钩子（`.husky/commit-msg`），提交时实时校验。
+  `pnpm install` 时自动安装 git 钩子（`.husky/commit-msg`），提交时实时校验。
 - **服务端校验**：`.github/workflows/commitlint.yml` 检查 PR 的全部提交，
   也检查直接 push 到 main 的提交；`.github/workflows/build.yml` 会在 PR 上
-  验证 `npm run build` 能否构建成功，构建挂了的 PR 检查不通过。
+  验证 `pnpm build` 能否构建成功，构建挂了的 PR 检查不通过。
 
 配置在根目录 `commitlint.config.mjs`。两点注意：
 
