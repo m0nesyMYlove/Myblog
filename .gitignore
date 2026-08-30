@@ -24,6 +24,9 @@ node_modules
 # valaxy fuse
 public/valaxy-fuse-list.json
 
+# husky 自动生成的钩子垫片目录（prepare 脚本会重建）
+.husky/_/
+
 # valaxy rss
 public/feed.xml
 

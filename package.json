@@ -9,7 +9,8 @@
     "build:ssg": "valaxy build --ssg",
     "dev": "valaxy",
     "rss": "valaxy rss",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "prepare": "husky"
   },
   "dependencies": {
     "@fontsource/noto-serif-sc": "^5.2.8",
@@ -19,6 +20,9 @@
     "valaxy-theme-yun": "1.0.0-rc.9"
   },
   "devDependencies": {
+    "@commitlint/cli": "^21.2.2",
+    "@commitlint/config-conventional": "^21.2.2",
+    "husky": "^9.1.7",
     "typescript": "^5.3.3"
   }
 }
