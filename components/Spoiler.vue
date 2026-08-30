@@ -1,4 +1,3 @@
-<!-- components/Spoiler.vue -->
 <template>
   <span
     class="spoiler-advanced"
@@ -24,12 +23,10 @@
 <script setup lang="ts">
 import { ref, computed, watch } from 'vue'
 
-// 响应式状态
 const isRevealed = ref(false)
 const isHovering = ref(false)
 const isPermanentReveal = ref(false)
 
-// 属性定义
 interface Props {
   revealOn?: 'click' | 'hover' | 'both'
   blurIntensity?: number
@@ -46,7 +43,6 @@ const props = withDefaults(defineProps<Props>(), {
   tooltip: '点击或悬停查看'
 })
 
-// 计算属性
 const tooltipText = computed(() => {
   if (props.tooltip) return props.tooltip
   return props.revealOn === 'both'
@@ -64,12 +60,10 @@ const shouldReveal = computed(() => {
   return false
 })
 
-// 监听显示状态变化
 watch(shouldReveal, (newVal) => {
   isRevealed.value = newVal
 })
 
-// 方法
 const handleClick = () => {
   if (props.revealOn === 'click' || props.revealOn === 'both') {
     if (props.permanentAfterClick) {
@@ -89,14 +83,12 @@ const handleMouseEnter = () => {
 const handleMouseLeave = () => {
   if (props.revealOn === 'hover' || props.revealOn === 'both') {
     isHovering.value = false
-    // 如果不是永久显示模式，悬停离开后恢复隐藏
     if (!isPermanentReveal.value) {
       isRevealed.value = false
     }
   }
 }
 
-// 暴露方法供外部调用（可选）
 defineExpose({
   reveal: () => { isRevealed.value = true; isPermanentReveal.value = true },
   hide: () => { isRevealed.value = false; isPermanentReveal.value = false },
@@ -124,7 +116,6 @@ defineExpose({
   transition: all v-bind(animationDuration + 's') ease;
 }
 
-/* 默认隐藏状态 - 模糊效果 */
 .spoiler-advanced:not(.is-revealed) .spoiler-content {
   filter: blur(v-bind(blurIntensity + 'px'));
   opacity: 0.7;
@@ -132,7 +123,6 @@ defineExpose({
   text-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
 }
 
-/* 显示状态 */
 .spoiler-advanced.is-revealed .spoiler-content {
   filter: blur(0);
   opacity: 1;
@@ -140,13 +130,11 @@ defineExpose({
   text-shadow: none;
 }
 
-/* 悬停状态 */
 .spoiler-advanced.is-hovering:not(.permanent-reveal) .spoiler-content {
   filter: blur(calc(v-bind(blurIntensity + 'px') / 2));
   opacity: 0.85;
 }
 
-/* 覆盖层 */
 .spoiler-overlay {
   position: absolute;
   top: 0;
@@ -176,18 +164,15 @@ defineExpose({
   letter-spacing: 1px;
 }
 
-/* 悬停时的覆盖层效果 */
 .spoiler-advanced.is-hovering:not(.permanent-reveal) .spoiler-overlay {
   background: linear-gradient(135deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.15));
 }
 
-/* 点击反馈动画 */
 .spoiler-advanced:active .spoiler-overlay {
   transform: scale(0.95);
   transition-duration: 0.1s;
 }
 
-/* 永久显示状态的特殊样式 */
 .spoiler-advanced.permanent-reveal {
   cursor: default;
   background-color: rgba(0, 0, 0, 0.03);

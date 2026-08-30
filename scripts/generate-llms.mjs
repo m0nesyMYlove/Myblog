@@ -94,7 +94,6 @@ function loadPages() {
       }),
   )]
 
-  // 首页置顶，其余按路径排序，保证输出稳定
   return pathnames.sort((a, b) => (a === '/' ? -1 : b === '/' ? 1 : a.localeCompare(b)))
     .map(pathname => ({ pathname, meta: PAGE_META[pathname] }))
 }

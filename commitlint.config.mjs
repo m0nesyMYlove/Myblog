@@ -11,6 +11,6 @@ export default {
     'type-enum': [2, 'always', ['feat', 'fix', 'perf', 'style', 'refactor', 'docs', 'chore', 'revert']],
     'scope-enum': [2, 'always', ['theme', 'styles', 'pages', 'posts', 'locales', 'setup', 'config', 'assets', 'deps', 'ci']],
     'subject-case': [0],                    // 中文主题不适用英文大小写规则
-    'header-max-length': [2, 'always', 72], // 主题行不超过 72 字符
+    'header-max-length': [2, 'always', 72],
   },
 }

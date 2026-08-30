@@ -75,7 +75,6 @@ async function fetchWithRetry(api, options) {
       res = await fetch(api, { ...options, signal: AbortSignal.timeout(FETCH_TIMEOUT) })
     }
     catch (err) {
-      // 网络错误 / 超时，视为暂时性错误
       lastError = err
     }
     if (res) {
@@ -116,7 +115,6 @@ async function fetchComments() {
     for (const comment of await fetchCommentsByPath(path))
       if (!merged.has(comment.objectId))
         merged.set(comment.objectId, comment)
-  // 按时间正序处理，先申请的先入列
   return [...merged.values()].sort((a, b) => (a.time ?? 0) - (b.time ?? 0))
 }
 
@@ -340,7 +338,6 @@ function toEntry(fields, comment) {
   }
 }
 
-// 定位 frontmatter 里的 links: 列表块（起止行号）
 function locateLinksBlock(content) {
   const lines = content.replace(/\r\n/g, '\n').split('\n')
   if (lines[0]?.trim() !== '---')

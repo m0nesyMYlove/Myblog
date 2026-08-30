@@ -13,7 +13,6 @@ const radius = 48
 const circumference = 2 * radius * Math.PI
 
 const strokeOffset = computed(() => {
-  // 周长
   const val = (1 - percentage.value) * circumference
   return val < 0 ? 0 : val
 })

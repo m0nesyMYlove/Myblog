@@ -4,9 +4,6 @@ import type { UserThemeConfig } from 'valaxy-theme-yun'
 import { addonMeting } from 'valaxy-addon-meting'
 import { addonWaline } from 'valaxy-addon-waline'
 
-/**
- * User Config
- */
 export default defineValaxyConfig<UserThemeConfig>({
   // site config see site.config.ts
 
@@ -80,17 +77,14 @@ export default defineValaxyConfig<UserThemeConfig>({
   },
 
   components: {
-      // 排除不需要自动注册的目录或组件
       exclude:[
         /[\\/]\.git[\\/]/,
-        /[\\/]\.exclude[\\/]/, // 排除 .exclude 文件夹
-        // 您可以添加其他需要排除的正则表达式规则
+        /[\\/]\.exclude[\\/]/,
       ],
     },
 
   addons: [
 
-    // 设置 valaxy-addon-waline 配置项
     addonWaline({
       // Waline 配置项，参考 https://waline.js.org/reference/client/props.html
       serverURL: 'comment.politian.cn',
@@ -101,7 +95,6 @@ export default defineValaxyConfig<UserThemeConfig>({
       texRenderer:false,
     }),
 
-    // 设置 valaxy-addon-meting 播放器配置项
     addonMeting({
       // 设为 `global: true` 可在每个页面显示固定播放器
       global: false,
