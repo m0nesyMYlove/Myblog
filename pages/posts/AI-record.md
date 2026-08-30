@@ -6,8 +6,6 @@ categories: 学习
 tags:
 - AI
 
-top: 3
-
 ---
 ## 前言
 

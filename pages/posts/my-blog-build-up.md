@@ -10,8 +10,6 @@ tags:
 - GitHub
 - Cloudflare
 
-top: 2
-
 ---
 
 ## 前言
