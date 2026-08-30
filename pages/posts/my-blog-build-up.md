@@ -1,7 +1,7 @@
 ﻿---
 title: 如何创建自己的博客
 date: 2024-03-05
-updated: 2024-03-05
+updated: 2026-08-30
 categories: Valaxy 笔记
 tags:
 - Valaxy
@@ -173,7 +173,7 @@ Valaxy自带了Netlify的建站脚本，所以用这个挺友善的，而且我�
 ### 新建站点
 在Team overview主页的网站 Sites标签页下点击添加新网址 add new site，并选择 连接到一个存在的项目/Import an existing project
 
-然后选择你之前创建的github仓库，一切默认，不同的是我们的构建命令是Valaxy自带的`npm run build`
+然后选择你之前创建的github仓库，一切默认，不同的是我们的构建命令是`pnpm run build`（本博客统一用 pnpm 管理依赖，Netlify 会自动识别 pnpm-lock.yaml）
 
 构建完成后我们就能够看到一个URL，打开网址就是我们的个人博客了可以根据提示进行进一步的设置，比如说设置一下二级域名（即`netlify.app`之前的域名）。
 

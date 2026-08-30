@@ -1,7 +1,7 @@
 ---
 title: 博客的评论系统和图库
 date: 2024-06-21
-updated: 2025-11-22
+updated: 2026-08-30
 categories: 学习
 tags:
 - Valaxy
@@ -37,7 +37,7 @@ Valaxy框架集成了Waline，所以用了这个。
 在Valaxy框架博客上使用请参考文档[valaxy-addon-waline|valaxy](https://github.com/YunYouJun/valaxy/blob/main/packages/valaxy-addon-waline/README.md)
 在博客本地文件所在位置终端运行
 ```
-npm i valaxy-addon-waline
+pnpm add valaxy-addon-waline
 ```
 ![安装到Valaxy框架1](https://image.politian.cn/file/AgACAgUAAyEGAATMIXEFAAMHaSHF6MPIN10VQJP1_2JkbWk7zvkAAh4NaxsY6RFVmn_wAAEouq7AAQADAgADdwADNgQ.png)
 然后再在valaxy.config.ts文件里写入代码启用
