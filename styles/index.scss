@@ -1,4 +1,8 @@
-// you can custom css here
+// ============================================================
+// APlayer 固定(fixed)播放器(meting 插件)适配
+// 插件的 CSS 是运行时注入的 CDN <link>,加载顺序在本文件之后不可控,
+// 因此覆盖规则一律用 !important 或更高优先级选择器
+// ============================================================
 
 // APlayer 固定(fixed)模式模板默认把歌名/进度条区域写死为 display: none(仅 mini 模式会移除),
 // 这里强制显示,固定播放器条才能看到歌名、进度和控制按钮
@@ -6,10 +10,123 @@
   display: block !important;
 }
 
-// 固定模式的歌词默认悬浮在页面底部,窄窗口下会被白底的播放器条(z-index 99)挡住,
-// 上移到播放器条上方显示(需 !important,否则会被按加载顺序覆盖)
-.aplayer.aplayer-fixed .aplayer-lrc {
+// 修复:meting 插件的 animation-in 样式会被 Vite 一并打进主 CSS,规则
+// `.aplayer.aplayer-fixed.aplayer-narrow .aplayer-body{display:none;left:-100px}`
+// 会在点击折叠按钮时把整个播放器体(含再次展开用的箭头按钮)藏到无法恢复。
+// 这里还原 APlayer 官方折叠行为:收窄为 66px 封面 + 18px 箭头,点箭头可再次展开
+// (选择器比插件原规则多一层 html 前缀提高优先级;实测同选择器规则在产物压缩时会与插件
+//  规则冲突被吞,提高优先级后稳定保留)
+html .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+  display: block !important;
+  left: 0 !important;
+}
+
+// 歌名颜色:APlayer 官方把背景写死为白色,文字色却继承页面;
+// 黑夜模式下 valaxy 把页面文字换成浅色,浅字落在白底播放器上等于隐形。
+// 白天显式固定为深色(不依赖页面继承)
+.aplayer {
+  color: #000;
+}
+
+// 黑夜模式:深色半透明面板 + 浅色文字,与页面暗色背景融为一体
+html.dark .aplayer {
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(30, 32, 38, 0.92);
+}
+
+html.dark .aplayer .aplayer-body {
+  background: rgba(30, 32, 38, 0.92);
+  backdrop-filter: blur(10px);
+}
+
+html.dark .aplayer .aplayer-info .aplayer-music .aplayer-author {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+html.dark .aplayer .aplayer-time {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+html.dark .aplayer .aplayer-controller .aplayer-time .aplayer-icon path {
+  fill: rgba(255, 255, 255, 0.6);
+}
+
+html.dark .aplayer .aplayer-bar-wrap .aplayer-bar {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+html.dark .aplayer .aplayer-volume-bar {
+  background: rgba(255, 255, 255, 0.2) !important;
+}
+
+html.dark .aplayer .aplayer-list {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+html.dark .aplayer .aplayer-list ol li {
+  border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+html.dark .aplayer .aplayer-list ol li:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+html.dark .aplayer .aplayer-list ol li.aplayer-list-light {
+  background: rgba(255, 255, 255, 0.12) !important;
+}
+
+html.dark .aplayer .aplayer-list ol li .aplayer-list-index {
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
+html.dark .aplayer .aplayer-miniswitcher {
+  background: rgba(255, 255, 255, 0.15) !important;
+}
+
+html.dark .aplayer .aplayer-miniswitcher .aplayer-icon path {
+  fill: rgba(255, 255, 255, 0.75);
+}
+
+html.dark .aplayer .aplayer-miniswitcher:hover .aplayer-icon path {
+  fill: #fff;
+}
+
+html.dark .aplayer .aplayer-list ol::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+// 歌词:官方是 12px 灰字 + 生硬的 -1px -1px 0 #fff 白色硬阴影,改为柔光描边
+// (只调颜色/字重/阴影,不动官方 height/line-height 的 !important——歌词滚动定位依赖它)
+// bottom: 76px 把默认悬浮在页面底部的歌词上移到播放器条上方,避免被白底播放器条挡住;
+// text-shadow 与官方规则同优先级,需 html 前缀 +1 优先级,否则会被后加载的 CDN 样式表反超
+html .aplayer.aplayer-fixed .aplayer-lrc {
   bottom: 76px !important;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.95), 0 0 12px rgba(255, 255, 255, 0.7);
+}
+
+.aplayer.aplayer-fixed .aplayer-lrc p {
+  color: #666 !important;
+  opacity: 0.55;
+}
+
+// 当前行高亮:加粗放大(字号不超过官方 16px 行高,避免溢出裁切)
+.aplayer.aplayer-fixed .aplayer-lrc .aplayer-lrc-current {
+  color: #1f2328 !important;
+  font-size: 14px;
+  font-weight: 600;
+  opacity: 1;
+}
+
+html.dark .aplayer.aplayer-fixed .aplayer-lrc {
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.95), 0 0 12px rgba(0, 0, 0, 0.75);
+}
+
+html.dark .aplayer.aplayer-fixed .aplayer-lrc p {
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
+html.dark .aplayer.aplayer-fixed .aplayer-lrc .aplayer-lrc-current {
+  color: #fff !important;
 }
 
 // 背景图层(.yun-bg 本身 position:fixed 不滚动,fixed/scroll 两种附着绘制结果一致),
