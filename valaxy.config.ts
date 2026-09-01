@@ -18,6 +18,26 @@ export default defineValaxyConfig<UserThemeConfig>({
       },
     },
 
+    // 顶栏图标按钮(Nimbo 布局):来自 themeConfig.nav,pages 只渲染进侧边栏不进顶栏
+    nav: [
+      {
+        // 主题内置 key,locales 自动给出「博客文章/Posts」
+        text: 'menu.posts',
+        link: '/posts/',
+        icon: 'i-ri-article-line',
+      },
+      {
+        text: '$locale:nav.friends',
+        link: '/links/',
+        icon: 'i-ri-links-line',
+      },
+      {
+        text: '$locale:nav.about',
+        link: '/about/',
+        icon: 'i-ri-user-line',
+      },
+    ],
+
     pages: [
       {
         // $locale: 前缀 = 走 i18n 翻译,文案在 locales/{en,zh-CN}.yml 的 nav.friends
