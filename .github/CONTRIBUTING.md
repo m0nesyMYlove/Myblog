@@ -142,7 +142,22 @@ git 提交模板（`.github/commit-template.txt`，已通过 `git config commit.
   也检查直接 push 到 main 的提交；`.github/workflows/build.yml` 会在 PR 上
   验证 `pnpm build` 能否构建成功，构建挂了的 PR 检查不通过。
 
-配置在根目录 `commitlint.config.mjs`。两点注意：
+配置在根目录 `commitlint.config.mjs`，除 conventional 默认规则外还自定义了四条：
+
+| 规则 | 级别 | 说明 |
+| ---- | ---- | ---- |
+| `emoji-type-pair` | 报错 | 行首 emoji 必须是该 type 配对的那个；🤖 例外（机器人专用） |
+| `subject-no-full-stop` | 报错 | 主题结尾不许出现 `。` 或 `.` |
+| `subject-max-width` | 警告 | 主题显示宽度超过 50（约 25 个汉字） |
+| `body-max-line-width` | 警告 | 正文单行显示宽度超过 80（约 40 个汉字） |
+
+「宽度」按 CJK 与全角标点记 2、其余记 1 计算，比字符数更贴近「多少个汉字」。
+
+仍然拦不住、只能靠人的：一次提交只做一件事、scope 归得对不对、正文的
+「问题 / 方案 / 验证」结构、主题是否动词开头、🤖 与 `[skip ci]` 的人工误用
+（commitlint 拿不到 author，分不出机器人与人）。
+
+两点注意：
 
 1. `git revert` 自动生成的信息不带 emoji，会被拦截，提交前手动补上即可。
 2. 应急出口：确有理由时可用 `git commit --no-verify` 跳过本地校验（服务端 CI 仍会检查）。
