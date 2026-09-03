@@ -2,12 +2,14 @@
   "compilerOptions": {
     "target": "ESNext",
     "jsx": "preserve",
-    "lib": ["DOM", "ESNext"],
-    "baseUrl": ".",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "module": "ESNext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "paths": {
-      "~/*": ["./*"]
+      "~/*": ["./*"],
+      // valaxy-addon-waline@0.2.1 的 exports 只有 "./*"、缺 "." 入口，
+      // exports 感知的解析下裸包名找不到声明，直接指到它的 index.d.ts
+      "valaxy-addon-waline": ["./node_modules/valaxy-addon-waline/index.d.ts"]
     },
     "resolveJsonModule": true,
     "strict": true,
