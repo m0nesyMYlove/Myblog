@@ -10,6 +10,9 @@ valaxy-fuse-list.json
 
 temp/
 
+# AI 协作的临时文件（见 CLAUDE.md）
+.tmp/
+
 .DS_Store
 Thumbs.db
 Desktop.ini
@@ -26,7 +29,9 @@ node_modules
 
 # zcode
 .zcode/
-.claude/
+
+# claude code 本地状态（项目规范走版本库里的 CLAUDE.md 与 .claude/settings.json）
+.claude/settings.local.json
 
 # valaxy fuse
 public/valaxy-fuse-list.json

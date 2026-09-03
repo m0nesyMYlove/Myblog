@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "ask": [
+      "Edit(valaxy.config.ts)",
+      "Write(valaxy.config.ts)",
+      "Edit(site.config.ts)",
+      "Write(site.config.ts)",
+      "Edit(package.json)",
+      "Write(package.json)",
+      "Read(.env)",
+      "Read(.env.*)",
+      "Edit(.env)",
+      "Edit(.env.*)",
+      "Write(.env)",
+      "Write(.env.*)",
+      "Bash(rm -rf *)",
+      "Bash(sudo *)"
+    ],
+    "deny": [
+      "Edit(node_modules/**)",
+      "Write(node_modules/**)"
+    ]
+  }
+}
