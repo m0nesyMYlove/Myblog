@@ -26,6 +26,7 @@ node_modules
 
 # zcode
 .zcode/
+.claude/
 
 # valaxy fuse
 public/valaxy-fuse-list.json
